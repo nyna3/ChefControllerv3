@@ -4,8 +4,10 @@ import com.raven.component.Header;
 import com.raven.component.Menu;
 import com.raven.event.EventMenuSelected;
 import com.raven.event.EventShowPopupMenu;
-import com.raven.form.Form1;
+import com.raven.form.Form_Agenda;
+import com.raven.form.Form_Evento;
 import com.raven.form.Form_Home;
+import com.raven.form.Form_Orcamento;
 import com.raven.form.MainForm;
 import com.raven.swing.MenuItem;
 import com.raven.swing.PopupMenu;
@@ -46,13 +48,20 @@ public class Main extends javax.swing.JFrame {
         menu.addEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int menuIndex, int subMenuIndex) {
-                System.out.println("Menu Index : " + menuIndex + " SubMenu Index " + subMenuIndex);
+                System.out.println("Menu Index : " + menuIndex);
+
                 if (menuIndex == 0) {
-                    if (subMenuIndex == 0) {
-                        main.showForm(new Form_Home());
-                    } else if (subMenuIndex == 1) {
-                        main.showForm(new Form1());
-                    }
+            
+                    main.showForm(new Form_Home());
+                } else if (menuIndex == 1) {
+            
+                    main.showForm(new Form_Agenda());
+                }else if (menuIndex == 2) {
+            
+                    main.showForm(new Form_Orcamento());
+                }else if (menuIndex == 3) {
+            
+                    main.showForm(new Form_Evento());
                 }
             }
         });
